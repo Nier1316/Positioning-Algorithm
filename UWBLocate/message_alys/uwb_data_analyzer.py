@@ -12,7 +12,7 @@ from dataclasses import dataclass
 from datetime import datetime
 
 # 宏定义：数据文件相对路径
-LOCATION = "1.2a.txt"
+LOCATION = "1.2b.txt"
 
 @dataclass
 class UWBPacket:
