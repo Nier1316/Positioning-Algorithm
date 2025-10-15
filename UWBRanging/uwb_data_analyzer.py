@@ -12,7 +12,7 @@ from dataclasses import dataclass
 from datetime import datetime
 
 # 宏定义：数据文件相对路径
-LOCATION = "19-24_1-2_1.txt"
+LOCATION = "test.txt"
 
 @dataclass
 class UWBPacket:
@@ -82,7 +82,7 @@ class UWBDataAnalyzer:
                         try:
                             host_id = struct.unpack('>I', data[i+2:i+6])[0]  # 大端序4字节
                             slave_id = struct.unpack('>I', data[i+6:i+10])[0]  # 大端序4字节
-                            distance = struct.unpack('>H', data[i+10:i+12])[0]  # 大端序2字节
+                            distance = struct.unpack('<H', data[i+10:i+12])[0]  # 小端序2字节
                             
                             packet = UWBPacket(
                                 header=data[i:i+2],
